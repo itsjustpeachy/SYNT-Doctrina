@@ -148,7 +148,7 @@ $('#secondaryTag7').click(function () {
 
 //settings for ajax request from API on button press
 $('#submitButton').click(function () {
-    console.log('button pressed with keywords' + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6)
+    console.log('button pressed with keywords' + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + searchKeyword7)
     const settings = {
         "async": true,
         "crossDomain": true,
@@ -190,7 +190,9 @@ return response.json();
    
     console.log(data.data[0].title);
      console.log(data.data[0].artist_display);
-    //  console.log(data.data[0].date_display);
+      console.log(data.data[0].date_display);
+      console.log(data.config.website_url);
+      console.log(data.config.iiif_url);
      
     
 });
