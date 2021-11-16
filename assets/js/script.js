@@ -130,6 +130,14 @@ $(document).ready(function () {
             return
         }
     })
+    // Chicago art institute API
+    $('#secondaryTag6').click(function () {
+        if ($('#primaryTag1').hasClass('on')) {
+            searchKeyword6 = "%20digital art"
+            console.log(searchKeyword7)
+            return
+        }
+    })
 
     var search = document.querySelector(".button")
 var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=3'
