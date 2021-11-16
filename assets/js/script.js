@@ -183,7 +183,7 @@ return response.json();
 .then(function(data){
 
     
-     console.log(data);
+    //  console.log(data);
     // $("#option1").text(data);
      
      // funtion to get info for subcategory options 1 and 2
@@ -198,4 +198,4 @@ return response.json();
 });
 
 
-// }
+
