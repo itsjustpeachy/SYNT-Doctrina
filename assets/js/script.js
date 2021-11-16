@@ -14,7 +14,7 @@ search.addEventListener("click", ()=>{
     console.log(data);
     // $("#option1").text(data);
      
-     // funtion to get info for subcategori options 1 and 2
+     // funtion to get info for subcategory options 1 and 2
    
      $("#option1").text(data.data[0].title);
      console.log(data);
