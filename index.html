@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+<script src="./assets/js/script.js" defer></script>
 </head>
 
 <body>
     <!--Landing Cards-->
     <section class="section is-large">
-        <h1 class="title">Section.</h1>
+        <h1 class="title">Section</h1>
         <h2 class="subtitle">
             A simple container to divide your page into <strong>sections</strong>, like the one you're currently
             reading.
@@ -21,17 +23,7 @@
 
 
         <div class="columns is-3">
-            <div class="column">
-                <div class="card-image">
-                    <figure class="image is-4by3">
-                       <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"> 
-                    </figure>
-                    <button class="button is-medium is-fullwidth" >Art
-                   
-                </div>
-            </div>
-            
-            <div class="column">
+            <div class="column" id='primaryTag1'>
                 <div class="card-image">
                     <figure class="image is-4by3">
                         <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
@@ -39,7 +31,15 @@
                 </div>
             </div>
 
-            <div class="column">
+            <div class="column" id='primaryTag2'>
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                    </figure>
+                </div>
+            </div>
+
+            <div class="column" id='primaryTag3'>
                 <div class="card-image">
                     <figure class="image is-4by3">
                         <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
@@ -51,7 +51,7 @@
 
     </section>
 
-    <!--Specific Tags (Work)-->
+    <!--SecondaryTags-->
     <section class="section is-large">
         <h1 class="title">Section</h1>
         <h2 class="subtitle">
@@ -62,55 +62,44 @@
             <div class="tile is-vertical is-8">
                 <div class="tile">
                     <div class="tile is-parent is-vertical">
-                        <article id="first-option" class="tile is-child notification is-primary">
-                            <p class="title">Vertical...</p>
-                            <p class="subtitle">Top tile</p>
-                            <button id="option1" class="button is-danger is-rounded">option # 1</button>
+                        <article class="tile is-child notification is-primary" id='secondaryTag1'>
+                            <p class="title">Tag 1</p>
                         </article>
-                        <article class="tile is-child notification is-warning">
-                            <p class="title">...tiles</p>
-                            <p class="subtitle">Bottom tile</p>
+                        <article class="tile is-child notification is-warning" id='secondaryTag2'>
+                            <p class="title">Tag 2</p>
+                        </article>
+                        <article class="tile is-child notification is-primary" id='secondaryTag3'>
+                            <p class="title">Tag 3</p>
                         </article>
                     </div>
                     <div class="tile is-parent">
-                        <article id="second-option" class="tile is-child notification is-info">
-                            <p class="title">Middle tile</p>
-                            <p class="subtitle">With an image</p>
-                            <button id="option2" class="button is-danger is-rounded">option # </button>
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/640x480.png">
-                            </figure>
+                        <article class="tile is-child notification is-info" id='secondaryTag4'>
+                            <p class="title">Tag 4</p>
+
                         </article>
                     </div>
                 </div>
                 <div class="tile is-parent">
-                    <article class="tile is-child notification is-danger">
-                        <p class="title">Wide tile</p>
-                        <p class="subtitle">Aligned with the right tile</p>
-                        <div class="content">
-                            <!-- Content -->
-                        </div>
+                    <article class="tile is-child notification is-danger" id='secondaryTag5'>
+                        <p class="title">Tag 5</p>
                     </article>
                 </div>
             </div>
             <div class="tile is-parent">
-                <article class="tile is-child notification is-success">
-                    <div class="content">
-                        <p class="title">Tall tile</p>
-                        <p class="subtitle">With even more content</p>
-                        <button id="option3" class="button is-danger is-rounded">option # 3</button>
-                        <div class="content">
-                            <!-- Content -->
-                        </div>
-                    </div>
+                <article class="tile is-child notification is-success" id='secondaryTag6'>
+                        <p class="title">Tag 6</p>
                 </article>
+               
+            </div>
+            <div class="tile is-parent">
+                <article class="tile is-child notification is-success" id='secondaryTag7'>
+                        <p class="title">Tag 7</p>
+                </article>
+               
             </div>
         </div>
     </section>
-    <!--TODO: Specific Tags (Play)-->
-
-    <!--TODO: Specific Tags (School)-->
-
+    <button class="button is-large is-fullwidth is-primary" id="submitButton">SUBMIT</button>
     <!--TODO: API blocks-->
     <section class="section is-large">
         <h1 class="title">Section</h1>
@@ -137,7 +126,7 @@
                         <p class="subtitle is-6">hyperlink to class</p>
                     </div>
                 </div>
-                
+
                 <div class="content">
                     Class Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Phasellus nec iaculis mauris. <a>@bulmaio</a>.
@@ -148,20 +137,17 @@
             </div>
         </div>
     </section>
-  
+
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
                 <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
                 <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
                 is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-                
             </p>
-            <script src="./assets/js/script.js"></script>
-            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-            <!-- <script src="https://api.artic.edu/api/v1/artworks?page=2&limit=3"></script> -->
         </div>
     </footer>
+
 
 </body>
 
