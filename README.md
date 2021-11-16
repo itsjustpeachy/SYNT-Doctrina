@@ -1,4 +1,4 @@
-#SYNT Doctrina
+##SYNT Doctrina
 
 A flexible webpage application that connects students with learning platforms based on their specifications
 
