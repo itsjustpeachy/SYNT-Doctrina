@@ -2,10 +2,12 @@
 
 A flexible webpage application that connects students with learning platforms based on their specifications
 
-### Usage
-https://itsjustpeachy.github.io/SYNT-Doctrina/
+### Links
 
-https://itsjustpeachy.github.io/SYNT-Doctrina
+GitHub: https://github.com/itsjustpeachy/SYNT-Doctrina
+Page: https://itsjustpeachy.github.io/SYNT-Doctrina/
+
+
 
 ### Technologies Libraries
  - [Rapid API - Learning Objects V2](https://rapidapi.com/inokufu-search-api/api/learning-objects-v2/details)
