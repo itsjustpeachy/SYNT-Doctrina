@@ -21,6 +21,7 @@ $(document).ready(function () {
         $('#secondaryTag4').children().text("Creative Writing")
         $('#secondaryTag5').toggle(true).children().text("Coding")
         $('#secondaryTag6').toggle(true).children().text("Digital Art")
+        $('#secondaryTag7').toggle(true).children().text("Inspiration")
     });
     $("#primaryTag2").click(function () {
         console.log('primaryTag2')
@@ -33,6 +34,7 @@ $(document).ready(function () {
         $('#secondaryTag4').children().text("Time Management")
         $('#secondaryTag5').toggle(false).children().text("")
         $('#secondaryTag6').toggle(false).children().text("")
+        $('#secondaryTag7').toggle(false).children().text("")
     });
     $("#primaryTag3").click(function () {
         console.log('primaryTag3')
@@ -45,6 +47,7 @@ $(document).ready(function () {
         $('#secondaryTag4').children().text("Time Management")
         $('#secondaryTag5').toggle(false).children().text("")
         $('#secondaryTag6').toggle(false).children().text("")
+        $('#secondaryTag7').toggle(false).children().text("")
     });
 
     //Sets keywords for search in settings
@@ -130,15 +133,22 @@ $(document).ready(function () {
             return
         }
     })
+
     // Chicago art institute API
+<<<<<<< HEAD
     $('#secondaryTag7').click(function () {
         if ($('#primaryTag7').hasClass('on')) {
             searchKeyword7 = "%20classical art"
+=======
+    $('#secondaryTag6').click(function () {
+        if ($('#primaryTag1').hasClass('on')) {
+>>>>>>> 48a82969f77cede21e2a61384f93050eb646bbc6
             console.log(searchKeyword7)
             return
         }
     })
 
+<<<<<<< HEAD
     var search = document.querySelector(".button")
     var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=3'
 
@@ -191,6 +201,21 @@ $(document).ready(function () {
 
         })
 
+=======
+    var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=3'
+
+    fetch(chicagoInstitute)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            console.log(data.data[0].title)
+            console.log(data.data[0].artist_display)
+            console.log(data.data[0].date_display)
+            console.log(data.config.website_url)
+            console.log(data.config.iiif_url)
+        })
+>>>>>>> 48a82969f77cede21e2a61384f93050eb646bbc6
 
     //settings for ajax request from API on button press
     $('#submitButton').click(function () {
