@@ -131,40 +131,66 @@ $(document).ready(function () {
         }
     })
     // Chicago art institute API
-    $('#secondaryTag6').click(function () {
-        if ($('#primaryTag1').hasClass('on')) {
-            searchKeyword6 = "%20digital art"
+    $('#secondaryTag7').click(function () {
+        if ($('#primaryTag7').hasClass('on')) {
+            searchKeyword7 = "%20classical art"
             console.log(searchKeyword7)
             return
         }
     })
 
     var search = document.querySelector(".button")
-var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=3'
+    var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=3'
 
-// funtion to fech data from th API
-// function searchBtn(){
+    //     // funtion to fech data from th API
+    //     // function searchBtn(){
 
-fetch(chicagoInstitute)
-.then(function(response){
-return response.json();
-})
-.then(function(data){
+    fetch(chicagoInstitute)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+            fetch(`https://api.artic.edu/api/v1/artworks/${data.data[0].id}?fields=id,title,image_id`)
+                .then(function (response2) { return response2.json() })
 
-    
-    //  console.log(data);
-    // $("#option1").text(data);
-     
-     // funtion to get info for subcategory options 1 and 2
-   
-    console.log(data.data[0].title);
-     console.log(data.data[0].artist_display);
-      console.log(data.data[0].date_display);
-      console.log(data.config.website_url);
-      console.log(data.config.iiif_url);
-     
-    
-});
+                .then(paintingdata => {
+                    console.log(paintingdata)
+                    // console.log('https://api.artic.edu/api/v1/artworks/' + paintingdata + '?fields=id,title,image_id')
+
+                    fetch(`https://www.artic.edu/iiif/2/${paintingdata.data.image_id}/full/843,/0/default.jpg`)
+
+                        .then((imagedata) => {
+                            console.log(imagedata)
+                            $(".card").append(`<div class="card"> <img class="card-image" src="${imagedata.url}"></div>`)
+                            console.log($(".card"))
+
+
+
+
+                            // $("#option1").text(data);
+
+                            //    
+
+                            // console.log(data.data[0].title);
+                            // console.log(data.data[0].artist_display);
+                            // console.log(data.data[0].date_display);
+                            // console.log(data.config.website_url);
+                            // console.log(data.config.iiif_url);
+                            for (var i = 0; i < 9; i++) {
+                                var title = document.createElement("h1")
+                                title.innerHTML = data.data[i].title
+                                var artist = document.createElement("h1")
+                                artist.innerHTML = data.data[i].artist_display
+                                // $("#card-container").append(title)
+
+                                 $("#card-container").append(imagedata)
+                            }
+                        })
+                })
+
+        })
+
 
     //settings for ajax request from API on button press
     $('#submitButton').click(function () {
@@ -172,7 +198,7 @@ return response.json();
         const settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://learning-objects-v2.p.rapidapi.com/search?keywords=" + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + searchKeyword7 +  "&lang=en&sort=popularity&model=strict&max=10&page=0",
+            "url": "https://learning-objects-v2.p.rapidapi.com/search?keywords=" + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + searchKeyword7 + "&lang=en&sort=popularity&model=strict&max=10&page=0",
             "method": "GET",
             //"dataType": "json",
 
@@ -192,7 +218,7 @@ return response.json();
                 cardTitle = response.response.content[i].title
                 cardProvider = response.response.content[i].provider
                 cardPicture = response.response.content[i].picture
-                
+
                 //Card Image div's made
                 $cardImg = $("<img>").attr('src', cardPicture)
                 $cardImgFig = $("<figure>").addClass("image is-4by3").append($cardImg)
@@ -228,4 +254,3 @@ return response.json();
 
     })
 })
-
