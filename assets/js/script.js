@@ -21,6 +21,7 @@ $(document).ready(function () {
         $('#secondaryTag4').children().text("Creative Writing")
         $('#secondaryTag5').toggle(true).children().text("Coding")
         $('#secondaryTag6').toggle(true).children().text("Digital Art")
+        $('#secondaryTag7').toggle(true).children().text("Inspiration")
     });
     $("#primaryTag2").click(function () {
         console.log('primaryTag2')
@@ -33,6 +34,7 @@ $(document).ready(function () {
         $('#secondaryTag4').children().text("Time Management")
         $('#secondaryTag5').toggle(false).children().text("")
         $('#secondaryTag6').toggle(false).children().text("")
+        $('#secondaryTag7').toggle(false).children().text("")
     });
     $("#primaryTag3").click(function () {
         console.log('primaryTag3')
@@ -45,6 +47,7 @@ $(document).ready(function () {
         $('#secondaryTag4').children().text("Time Management")
         $('#secondaryTag5').toggle(false).children().text("")
         $('#secondaryTag6').toggle(false).children().text("")
+        $('#secondaryTag7').toggle(false).children().text("")
     });
 
     //Sets keywords for search in settings
@@ -130,41 +133,28 @@ $(document).ready(function () {
             return
         }
     })
+
     // Chicago art institute API
     $('#secondaryTag6').click(function () {
         if ($('#primaryTag1').hasClass('on')) {
-            searchKeyword6 = "%20digital art"
             console.log(searchKeyword7)
             return
         }
     })
 
-    var search = document.querySelector(".button")
-var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=3'
+    var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=3'
 
-// funtion to fech data from th API
-// function searchBtn(){
-
-fetch(chicagoInstitute)
-.then(function(response){
-return response.json();
-})
-.then(function(data){
-
-    
-    //  console.log(data);
-    // $("#option1").text(data);
-     
-     // funtion to get info for subcategory options 1 and 2
-   
-    console.log(data.data[0].title);
-     console.log(data.data[0].artist_display);
-      console.log(data.data[0].date_display);
-      console.log(data.config.website_url);
-      console.log(data.config.iiif_url);
-     
-    
-});
+    fetch(chicagoInstitute)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            console.log(data.data[0].title)
+            console.log(data.data[0].artist_display)
+            console.log(data.data[0].date_display)
+            console.log(data.config.website_url)
+            console.log(data.config.iiif_url)
+        })
 
     //settings for ajax request from API on button press
     $('#submitButton').click(function () {
@@ -172,7 +162,7 @@ return response.json();
         const settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://learning-objects-v2.p.rapidapi.com/search?keywords=" + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + searchKeyword7 +  "&lang=en&sort=popularity&model=strict&max=10&page=0",
+            "url": "https://learning-objects-v2.p.rapidapi.com/search?keywords=" + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + searchKeyword7 + "&lang=en&sort=popularity&model=strict&max=10&page=0",
             "method": "GET",
             //"dataType": "json",
 
@@ -192,7 +182,7 @@ return response.json();
                 cardTitle = response.response.content[i].title
                 cardProvider = response.response.content[i].provider
                 cardPicture = response.response.content[i].picture
-                
+
                 //Card Image div's made
                 $cardImg = $("<img>").attr('src', cardPicture)
                 $cardImgFig = $("<figure>").addClass("image is-4by3").append($cardImg)
