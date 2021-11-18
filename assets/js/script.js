@@ -10,6 +10,7 @@ $(document).ready(function () {
     //Sets Tag text based on primary Tag press
     //TODO: use arrays to simplify code
     $("#primaryTag1").click(function () {
+        $("#sectionID").show()
         console.log('primaryTag1')
         $("#primaryTag1").toggleClass('on')
         $("#primaryTag2, #primaryTag3").removeClass('on')
@@ -22,6 +23,7 @@ $(document).ready(function () {
         $('#secondaryTag6').toggle(true).children().text("Digital Art")
     });
     $("#primaryTag2").click(function () {
+        $("#sectionID").show()
         console.log('primaryTag2')
         $('#primaryTag2').toggleClass('on')
         $("#primaryTag1, #primaryTag3").removeClass('on')
@@ -34,6 +36,7 @@ $(document).ready(function () {
         $('#secondaryTag6').toggle(false).children().text("")
     });
     $("#primaryTag3").click(function () {
+        $("#sectionID").show()
         console.log('primaryTag3')
         $('#primaryTag3').toggleClass('on')
         $("#primaryTag1, #primaryTag2").removeClass('on')
@@ -147,6 +150,7 @@ $(document).ready(function () {
         }
         $.ajax(settings).done(function (response) {
             console.log(response)
+            $("#apiBlocks").empty()
             for (let i = 0; i < 9; i++) {
 
                 console.log(response.response.content[i])
@@ -182,7 +186,7 @@ $(document).ready(function () {
                 $cardContent = $("<div>").addClass("card-content").append($cardMedia, $cardTitleDiv, $cardDesc)
 
                 //creates the card div to hold Title, description, & image
-                $cardDiv = $("<div>").addClass("box").append($cardImgDiv, $cardContent)
+                $cardDiv = $("<div>").addClass("box column is-3").append($cardImgDiv, $cardContent)
 
                 $("#apiBlocks").append($cardDiv)
 
