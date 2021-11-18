@@ -143,12 +143,10 @@ $(document).ready(function () {
         }
     })
 
-    // var search = document.querySelector(".button")
-    // function  inspiration(){
+    
     var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=10'
 
-    //     // funtion to fech data from th API
-    //     // function searchBtn(){
+    
         
         fetch(chicagoInstitute)
         .then(function (response) {
@@ -156,7 +154,7 @@ $(document).ready(function () {
         })
         .then(function (data) {
            
-            // for (var i = 1; i < data.data.length; i++) {
+            // this can be a function  
                 var rand = Math.floor ( Math.random() * data.data.length)
                 console.log(rand)
                 console.log(data)
@@ -165,57 +163,27 @@ $(document).ready(function () {
                 .then(function (response2) { return response2.json() })
 
                 .then(paintingdata => {
-                   // console.log(paintingdata)
-                    //  console.log('https://api.artic.edu/api/v1/artworks/' + paintingdata + '?fields=id,title,image_id')
-
+                  
                     fetch(`https://www.artic.edu/iiif/2/${paintingdata.data.image_id}/full/843,/0/default.jpg`)
 
                         .then((imagedata) => {
                               console.log(imagedata)
 
-                            $("#inspiration").append(`<div class="card"> <img class="card-image" src="${imagedata.url}"></div>`)
-                              //console.log($("imagedata.url"))
-
-
-
-
-                            // $("#option1").text(data);
-
-                            //    
-
-                             console.log("Title: " + data.data[rand].title);
+                            console.log("Title: " + data.data[rand].title);
                             console.log("Artist " + data.data[rand].artist_display);
                              console.log("Time period: "  + data.data[rand].date_display);
                              
-                            // console.log(data.config.iiif_url);
-                                  var image = document.createElement("h1")
-                                 image.innerHTML = ("Title: " + data.data[rand].title)
-                                 
-                                //   var title = document.createElement("h1")
-                                //   title.innerHTML = data.data[i].title
-                                 
-                                //  var date = document.createElement("h1")
-                                //  date.innerHTML = data.data[rand].date_display
-                                // console.log(data.config.website_url)
-                                  //var web = document.createElement("h1")
-                                  //web.innerHTML = data.data[i].config.website_url
-                                //  console.log(data.config.website_url)
-                                //  $("#card-container").append(title)
-                                //  $("#card-container").append(date)
-                                //  $("#card-container").append(src=`${imagedata.url}`)
-                                //   $("#card").append(`<div class="card"> <img class="card-image" src="${imagedata.url}"></div>`)
-                                // //   $("#card-container").append(imagedata.data[i].image_id)
-                               
+                            
+                                  $("#inspiration").append(`<div class="card"> <img class="card-image" src="${imagedata.url}"></div>`)
+                                  
+                                  $("#title").append("Title: " + data.data[rand].title )
+                                  $("#period").append("Artist: " + data.data[rand].artist_display)
+                                  $("#date").append("Time period: "  + data.data[rand].date_display);
 
-                             //$("#card-container").append(`<div class="card"> <img class="card-image src="${imagedata.url}"></div>`)
-                            //  $("#card-container").append(paintingdata[i].imagedata.url)
-                                //    $("#card-container").append(imagedata)
-                            })
-                        })
-                    // }
-                        
-                    })
-                // }
+                         })
+                })
+        })
+            
 
     //settings for ajax request from API on button press
     $('#submitButton').click(function () {
