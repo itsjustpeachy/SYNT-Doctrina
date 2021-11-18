@@ -15,6 +15,21 @@ Page: https://itsjustpeachy.github.io/SYNT-Doctrina/
  - [Jquery](https://jquery.com/)
  - [Bulma](https://bulma.io/documentation/)
 
+
+Functionality
+
+This is a learning Platform application, which is works well based on Web API. When a user opens the index file, can see three different categories: WORK, PLAY and SCHOOL.
+By clicking and choosing one of these categories, we go to the second level which are sub-categories and they are more detail to make our search easier and then by clicking one of those, user can see different courses based on API result.
+This is a simple but effective application that shows how API, JavaScript, CSS and HTML works well together.
+ 
+
+
+Screenshot:
+
+![Screenshot](assets/images/prjimg.jpg)
+
+
+
 ## License
 
 MIT License
