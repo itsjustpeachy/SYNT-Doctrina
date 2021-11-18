@@ -135,45 +135,46 @@ $(document).ready(function () {
     })
 
     // Chicago art institute API
-<<<<<<< HEAD
     $('#secondaryTag7').click(function () {
-        if ($('#primaryTag7').hasClass('on')) {
-            searchKeyword7 = "%20classical art"
-=======
-    $('#secondaryTag6').click(function () {
         if ($('#primaryTag1').hasClass('on')) {
->>>>>>> 48a82969f77cede21e2a61384f93050eb646bbc6
+            searchKeyword7 = "%20classical art"
             console.log(searchKeyword7)
             return
         }
     })
 
-<<<<<<< HEAD
-    var search = document.querySelector(".button")
-    var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=3'
+    // var search = document.querySelector(".button")
+    // function  inspiration(){
+    var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=10'
 
     //     // funtion to fech data from th API
     //     // function searchBtn(){
-
-    fetch(chicagoInstitute)
+        
+        fetch(chicagoInstitute)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
-            fetch(`https://api.artic.edu/api/v1/artworks/${data.data[0].id}?fields=id,title,image_id`)
+           
+            // for (var i = 1; i < data.data.length; i++) {
+                var rand = Math.floor ( Math.random() * data.data.length)
+                console.log(rand)
+                console.log(data)
+               console.log(data.data.length)  
+            fetch(`https://api.artic.edu/api/v1/artworks/${data.data[rand].id}?fields=id,title,image_id`)
                 .then(function (response2) { return response2.json() })
 
                 .then(paintingdata => {
-                    console.log(paintingdata)
-                    // console.log('https://api.artic.edu/api/v1/artworks/' + paintingdata + '?fields=id,title,image_id')
+                   // console.log(paintingdata)
+                    //  console.log('https://api.artic.edu/api/v1/artworks/' + paintingdata + '?fields=id,title,image_id')
 
                     fetch(`https://www.artic.edu/iiif/2/${paintingdata.data.image_id}/full/843,/0/default.jpg`)
 
                         .then((imagedata) => {
-                            console.log(imagedata)
-                            $(".card").append(`<div class="card"> <img class="card-image" src="${imagedata.url}"></div>`)
-                            console.log($(".card"))
+                              console.log(imagedata)
+
+                            $("#inspiration").append(`<div class="card"> <img class="card-image" src="${imagedata.url}"></div>`)
+                              //console.log($("imagedata.url"))
 
 
 
@@ -182,48 +183,48 @@ $(document).ready(function () {
 
                             //    
 
-                            // console.log(data.data[0].title);
-                            // console.log(data.data[0].artist_display);
-                            // console.log(data.data[0].date_display);
-                            // console.log(data.config.website_url);
+                             console.log("Title: " + data.data[rand].title);
+                            console.log("Artist " + data.data[rand].artist_display);
+                             console.log("Time period: "  + data.data[rand].date_display);
+                             
                             // console.log(data.config.iiif_url);
-                            for (var i = 0; i < 9; i++) {
-                                var title = document.createElement("h1")
-                                title.innerHTML = data.data[i].title
-                                var artist = document.createElement("h1")
-                                artist.innerHTML = data.data[i].artist_display
-                                // $("#card-container").append(title)
+                                  var image = document.createElement("h1")
+                                 image.innerHTML = ("Title: " + data.data[rand].title)
+                                 
+                                //   var title = document.createElement("h1")
+                                //   title.innerHTML = data.data[i].title
+                                 
+                                //  var date = document.createElement("h1")
+                                //  date.innerHTML = data.data[rand].date_display
+                                // console.log(data.config.website_url)
+                                  //var web = document.createElement("h1")
+                                  //web.innerHTML = data.data[i].config.website_url
+                                //  console.log(data.config.website_url)
+                                //  $("#card-container").append(title)
+                                //  $("#card-container").append(date)
+                                //  $("#card-container").append(src=`${imagedata.url}`)
+                                //   $("#card").append(`<div class="card"> <img class="card-image" src="${imagedata.url}"></div>`)
+                                // //   $("#card-container").append(imagedata.data[i].image_id)
+                               
 
-                                 $("#card-container").append(imagedata)
-                            }
+                             //$("#card-container").append(`<div class="card"> <img class="card-image src="${imagedata.url}"></div>`)
+                            //  $("#card-container").append(paintingdata[i].imagedata.url)
+                                //    $("#card-container").append(imagedata)
+                            })
                         })
-                })
-
-        })
-
-=======
-    var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=3'
-
-    fetch(chicagoInstitute)
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (data) {
-            console.log(data.data[0].title)
-            console.log(data.data[0].artist_display)
-            console.log(data.data[0].date_display)
-            console.log(data.config.website_url)
-            console.log(data.config.iiif_url)
-        })
->>>>>>> 48a82969f77cede21e2a61384f93050eb646bbc6
+                    // }
+                        
+                    })
+                // }
 
     //settings for ajax request from API on button press
     $('#submitButton').click(function () {
+        
         console.log('button pressed with keywords' + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + searchKeyword7)
         const settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://learning-objects-v2.p.rapidapi.com/search?keywords=" + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + searchKeyword7 + "&lang=en&sort=popularity&model=strict&max=10&page=0",
+            "url": "https://learning-objects-v2.p.rapidapi.com/search?keywords=" + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6  + searchKeyword7+ "&lang=en&sort=popularity&model=strict&max=10&page=0",
             "method": "GET",
             //"dataType": "json",
 
