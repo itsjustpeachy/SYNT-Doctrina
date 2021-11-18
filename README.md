@@ -9,7 +9,7 @@ Page: https://itsjustpeachy.github.io/SYNT-Doctrina/
 
 
 
-### Technologies Libraries
+ Technologies Libraries
  - [Rapid API - Learning Objects V2](https://rapidapi.com/inokufu-search-api/api/learning-objects-v2/details)
  - [Chicago Art API](https://api.artic.edu/docs/#quick-start)
  - [Jquery](https://jquery.com/)
@@ -30,7 +30,7 @@ Screenshot:
 
 
 
-## License
+License
 
 MIT License
 
