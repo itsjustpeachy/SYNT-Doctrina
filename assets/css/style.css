@@ -39,6 +39,10 @@ body {
     justify-content: center;
 	
 }
+#sectionID{
+	display: none;
+
+}
 #Work-box{
 	margin-left:auto;
 	margin-right:auto;
@@ -65,15 +69,15 @@ footer{
 	position:relative;
 	}
 #apiBlocks{
-	border: solid 3px #4a96a0 ;
+	border: solid 3px #ffffff ;
 	border-radius: 5px;
 	width: 80%;
 	margin-right:auto;
 	margin-left:auto;
 	justify-items: center;
-	width: 40%;
-	height:40%;	
+	
 }
+
 #Middle-col{
 	
 	margin-left:50px;
