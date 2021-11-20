@@ -137,6 +137,10 @@ $(document).ready(function () {
     // Chicago art institute API
     $('#secondaryTag7').click(function () {
         if ($('#primaryTag1').hasClass('on')) {
+
+
+
+
             searchKeyword7 = "%20classical art"
             console.log(searchKeyword7)
             return
@@ -144,7 +148,10 @@ $(document).ready(function () {
     })
 
     
-    var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=10'
+    
+    //settings for ajax request from API on button press
+    $('#submitButton').click(function () {
+        var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=10'
 
     
         
@@ -185,9 +192,6 @@ $(document).ready(function () {
         })
             
 
-    //settings for ajax request from API on button press
-    $('#submitButton').click(function () {
-        
         console.log('button pressed with keywords' + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + searchKeyword7)
         const settings = {
             "async": true,
