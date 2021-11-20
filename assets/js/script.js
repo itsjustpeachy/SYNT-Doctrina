@@ -18,7 +18,9 @@ $(document).ready(function () {
         $('#secondaryTag1').children().text("Painting")
         $('#secondaryTag2').children().text("Crochet")
         $('#secondaryTag3').children().text("Music")
-        $('#secondaryTag4').children().text("Creative Writing")
+        $('#secondaryTag4').children().text("Writing")
+        $('#secondaryTagBox5').toggle(true)
+        $('#secondaryTagBox6').toggle(true)
         $('#secondaryTag5').toggle(true).children().text("Coding")
         $('#secondaryTag6').toggle(true).children().text("Digital Art")
     });
@@ -32,6 +34,8 @@ $(document).ready(function () {
         $('#secondaryTag2').children().text("Management")
         $('#secondaryTag3').children().text("Customer Service")
         $('#secondaryTag4').children().text("Time Management")
+        $('#secondaryTagBox5').toggle(false)
+        $('#secondaryTagBox6').toggle(false)
         $('#secondaryTag5').toggle(false).children().text("")
         $('#secondaryTag6').toggle(false).children().text("")
     });
@@ -45,6 +49,8 @@ $(document).ready(function () {
         $('#secondaryTag2').children().text("Studying")
         $('#secondaryTag3').children().text("Testing")
         $('#secondaryTag4').children().text("Time Management")
+        $('#secondaryTagBox5').toggle(false)
+        $('#secondaryTagBox6').toggle(false)
         $('#secondaryTag5').toggle(false).children().text("")
         $('#secondaryTag6').toggle(false).children().text("")
     });
@@ -52,51 +58,51 @@ $(document).ready(function () {
     //Sets keywords for search in settings
     $('#secondaryTag1').click(function () {
         if ($('#primaryTag1').hasClass('on')) {
-            searchKeyword1 = "%20painting"
+            searchKeyword1 = "%20tips%20painting"
             console.log(searchKeyword1)
             return
         }
         if ($('#primaryTag2').hasClass('on')) {
-            searchKeyword1 = "%20team building"
+            searchKeyword1 = "%20work%20team%20building"
             console.log(searchKeyword1)
             return
         }
         if ($('#primaryTag3').hasClass('on')) {
-            searchKeyword1 = "%20essays"
+            searchKeyword1 = "%20writing%20essays"
             console.log(searchKeyword1)
             return
         }
     })
     $('#secondaryTag2').click(function () {
         if ($('#primaryTag1').hasClass('on')) {
-            searchKeyword2 = "%20crochet"
+            searchKeyword2 = "%20how%20crochet"
             console.log(searchKeyword2)
             return
         }
         if ($('#primaryTag2').hasClass('on')) {
-            searchKeyword2 = "%20management"
+            searchKeyword2 = "%20workplace%20management"
             console.log(searchKeyword2)
             return
         }
         if ($('#primaryTag3').hasClass('on')) {
-            searchKeyword2 = "%20studying"
+            searchKeyword2 = "%20techniques%20studying"
             console.log(searchKeyword2)
             return
         }
     })
     $('#secondaryTag3').click(function () {
         if ($('#primaryTag1').hasClass('on')) {
-            searchKeyword3 = "%20music"
+            searchKeyword3 = "%20learn%20instrument"
             console.log(searchKeyword3)
             return
         }
         if ($('#primaryTag2').hasClass('on')) {
-            searchKeyword3 = "%20customer service"
+            searchKeyword3 = "%20customer%20service"
             console.log(searchKeyword3)
             return
         }
         if ($('#primaryTag3').hasClass('on')) {
-            searchKeyword3 = "%20testing"
+            searchKeyword3 = "%20tips%20testing"
             console.log(searchKeyword3)
             return
         }
@@ -108,26 +114,26 @@ $(document).ready(function () {
             return
         }
         if ($('#primaryTag2').hasClass('on')) {
-            searchKeyword4 = "%20time%20management"
+            searchKeyword4 = "%20work%20time%20management"
             console.log(searchKeyword4)
             return
         }
         if ($('#primaryTag3').hasClass('on')) {
-            searchKeyword4 = "%20time%20management"
+            searchKeyword4 = "%20school%20time%20management"
             console.log(searchKeyword4)
             return
         }
     })
     $('#secondaryTag5').click(function () {
         if ($('#primaryTag1').hasClass('on')) {
-            searchKeyword5 = "%20coding"
+            searchKeyword5 = "%20start%20coding"
             console.log(searchKeyword5)
             return
         }
     })
     $('#secondaryTag6').click(function () {
         if ($('#primaryTag1').hasClass('on')) {
-            searchKeyword6 = "%20digital art"
+            searchKeyword6 = "%20how%20digital art"
             console.log(searchKeyword6)
             return
         }
@@ -158,7 +164,7 @@ $(document).ready(function () {
                 cardDescription = response.response.content[i].description
                 cardUrl = response.response.content[i].url
                 cardTitle = response.response.content[i].title
-                cardProvider = response.response.content[i].provider
+                cardProvider = response.response.content[i].type
                 cardPicture = response.response.content[i].picture
                 
                 //Card Image div's made
@@ -181,12 +187,12 @@ $(document).ready(function () {
                 $cardTitleDiv = $("<div>").addClass("media-content").append($cardTitle, $cardProvider)
 
                 //Card Description
-                $cardDesc = $("<div>").addClass("content").text(cardDescription)
+                //$cardDesc = $("<div>").addClass("content").text("Price: " + cardDescription)
 
-                $cardContent = $("<div>").addClass("card-content").append($cardMedia, $cardTitleDiv, $cardDesc)
+                $cardContent = $("<div>").addClass("card-content").append($cardMedia, $cardTitleDiv,)
 
                 //creates the card div to hold Title, description, & image
-                $cardDiv = $("<div>").addClass("box column is-3").append($cardImgDiv, $cardContent)
+                $cardDiv = $("<a>").attr('href', cardUrl).attr('target', '_blank').addClass("box column is-3").append($cardImgDiv, $cardContent)
 
                 $("#apiBlocks").append($cardDiv)
 
