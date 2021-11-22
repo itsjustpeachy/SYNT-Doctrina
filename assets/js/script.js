@@ -219,7 +219,7 @@ $(document).ready(function () {
 
                 console.log(response.response.content[i])
 
-                cardDescription = response.response.content[i].description
+                //cardDescription = response.response.content[i].description
                 cardUrl = response.response.content[i].url
                 cardTitle = response.response.content[i].title
                 cardProvider = response.response.content[i].type
