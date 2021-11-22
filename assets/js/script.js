@@ -184,17 +184,20 @@ $(document).ready(function () {
 
                             .then((imagedata) => {
                                 console.log(imagedata)
-
+                                console.log(imagedata.url)
                                 console.log("Title: " + data.data[rand].title);
                                 console.log("Artist " + data.data[rand].artist_display);
                                 console.log("Time period: " + data.data[rand].date_display);
 
                                 if ($('#primaryTag1').hasClass('on')) {
 
-                                    $("#inspiration").append(`<div class="card"> <img class="card-image" src="${imagedata.url}"></div>`).toggle(true)
-                                    $("#title").append("" + data.data[rand].title)
-                                    $("#period").append("Artist: \n " + data.data[rand].artist_display)
-                                    $("#date").append("Time period: \n " + data.data[rand].date_display);
+                                    $("#inspiration").toggle(true)
+                                    $('#inspoImg').attr('src', imagedata.url )
+                                    $("#title").text("" + data.data[rand].title)
+                                    $("#period").text("Artist: \n " + data.data[rand].artist_display)
+                                    $("#date").text("Time period: \n " + data.data[rand].date_display);
+                                } else {
+                                    $("#inspiration").toggle(false)
                                 }
 
                             })
