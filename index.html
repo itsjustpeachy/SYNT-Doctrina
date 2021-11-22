@@ -4,44 +4,54 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>SYNT DOCTRINA</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+    <script src="./assets/js/script.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
     <!--Landing Cards-->
-    <section class="section is-large">
-        <h1 class="title">Section</h1>
+    <!--Add Header & Logo-->
+    <header>
+        <div id="logo"><img src="./assets/images/syntlogo.jpg" alt="logo" title="LOGO" />
+        </div>
+    </header>
+    <section class="section is-meduim">
+        <!--<h1 class="title">Section</h1>
         <h2 class="subtitle">
             A simple container to divide your page into <strong>sections</strong>, like the one you're currently
             reading.
-        </h2>
-
-
+        </h2>-->
+        <!--Add Striped Border-->
+        <h2 class="striped-border"></h2>
         <div class="columns is-3">
             <div class="column" id='primaryTag1'>
-                <div class="card-image">
+                <div id="workid" class="card-image">
+                    <p>PLAY</p>
                     <figure class="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                        <img src="./assets/images/play.jpg" alt="PLAY" title="PLAY">
                     </figure>
                 </div>
             </div>
 
             <div class="column" id='primaryTag2'>
-                <div class="card-image">
+                <div id="playid" class="card-image">
+                    <p>WORK</p>
                     <figure class="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                        <img src="./assets/images/work.jpg" alt="WORK" title="WORK">
                     </figure>
                 </div>
             </div>
 
             <div class="column" id='primaryTag3'>
-                <div class="card-image">
+                <div id="schoolid" class="card-image">
+                    <p>SCHOOL</p>
                     <figure class="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                        <img src="./assets/images/school.jpg" alt="SCHOOL" title="SCHOOL">
                     </figure>
                 </div>
             </div>
@@ -50,111 +60,90 @@
 
     </section>
 
-    <!--SecondaryTags-->
-    <section class="section is-large">
-        <h1 class="title">Section</h1>
-        <h2 class="subtitle">
-            A simple container to divide your page into <strong>sections</strong>, like the one you're currently
-            reading.
-        </h2>
-        <div class="tile is-ancestor">
-            <div class="tile is-vertical is-8">
-                <div class="tile">
-                    <div class="tile is-parent is-vertical">
-                        <article class="tile is-child notification is-primary" id='secondaryTag1'>
-                            <p class="title">Tag 1</p>
-                        </article>
-                        <article class="tile is-child notification is-warning" id='secondaryTag2'>
-                            <p class="title">Tag 2</p>
-                        </article>
-                        <article class="tile is-child notification is-primary" id='secondaryTag3'>
-                            <p class="title">Tag 3</p>
-                        </article>
-                    </div>
-                    <div class="tile is-parent">
-                        <article class="tile is-child notification is-info" id='secondaryTag4'>
-                            <p class="title">Tag 4</p>
+    <!--Add Striped Border-->
+    <h2 class="striped-border"></h2>
 
-                        </article>
-                    </div>
+    <!--SecondaryTags-->
+    <section class="section is-medium" style="background-color:#12032e; margin:50px; padding:50px;" id="sectionID">
+
+        <div class="columns" id="Middle-col">
+            <div class="tile is-ancestor">
+
+                <div class="tile is-child column">
+                    <article class="tile is-child box" id='secondaryTag1'>
+                        <p class="title">Tag 1</p>
+                    </article>
                 </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child notification is-danger" id='secondaryTag5'>
+
+                <div class="tile is-child column">
+                    <article class="tile is-child box" id='secondaryTag2'>
+                        <p class="title">Tag 2</p>
+                    </article>
+                </div>
+
+                <div class="tile is-child column">
+                    <article class="tile is-child box" id='secondaryTag3'>
+                        <p class="title">Tag 3</p>
+                    </article>
+                </div>
+
+                <div class="tile is-child column">
+                    <article class="tile is-child box" id='secondaryTag4'>
+                        <p class="title">Tag 4</p>
+                    </article>
+                </div>
+
+                <div class="tile is-child column" id='secondaryTagBox5'>
+                    <article class="tile is-child box" id='secondaryTag5'>
                         <p class="title">Tag 5</p>
                     </article>
                 </div>
-            </div>
-            <div class="tile is-parent">
-                <article class="tile is-child notification is-success" id='secondaryTag6'>
+
+                <div class="tile is-child column" id='secondaryTagBox6'>
+                    <article class="tile is-child box" id='secondaryTag6'>
                         <p class="title">Tag 6</p>
-                </article>
-               
-            </div>
-            <div class="tile is-parent">
-                <article class="tile is-child notification is-success" id='secondaryTag7'>
+                    </article>
+                </div>
+
+                <div class="tile is-child column" id='secondaryTagBox7'>
+                    <article class="tile is-child notification " id='secondaryTag7'>
                         <p class="title">Tag 7</p>
-                </article>
-               
+                    </article>
+                </div>
+                
             </div>
         </div>
+
+        <div style="width:100%; margin: 50px 0 0 0">
+            <p style="text-align: center;"><button class="button" id="submitButton">SUBMIT</button></p>
+        </div>
+
     </section>
-    <button class="button is-large is-fullwidth is-primary" id="submitButton">SUBMIT</button>
-    <!--TODO: API blocks-->
-    <figure id="inspiration" class="image is-128x128">
-  <img class="is-rounded" class = "image is-square"  >
-        <ul>
+    
+    <section>
+        <div id="inspiration" class="tile is-3" style="margin: 0 auto 50px auto;">
+            <img class="is-rounded" class="image has-ratio">
+            <ul>
                 <li id="title">
                 <li id="period">
                 <li id="date">
-         
-        </ul>
-</figure>
-    <section class="section is-large" id="card-container">
-        <h1 class="title">Section</h1>
-        <h2 class="subtitle">
-            A simple container to divide your page into <strong>sections</strong>, like the one you're currently
-            reading.
-        </h2>
-
-        <div class="card">
-            <div class="card-image">
-                <figure class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                </figure>
-            </div>
-            <div class="card-content">
-                <div class="media">
-                    <div class="media-left">
-                        <figure class="image is-48x48">
-                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <p class="title is-4">Title</p>
-                        <p class="subtitle is-6">hyperlink to class</p>
-                    </div>
-                </div>
-
-                <div class="content">
-                    Class Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a>
-                    <br>
-                    <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                </div>
-            </div>
+            </ul>
         </div>
     </section>
 
+    <!--TODO: API blocks-->
+    <section class="columns is-multiline is-centered" id='apiBlocks'>
+    </section>
+
+    <!--Change the footer-->
     <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-            </p>
+        <div class=" has-text-centered">
+            <p> <a href="index.html">HOME</a> | Categories | Contact us </p><br>
+            <p>&copy; 2021 SYNT DOCTRINA</p>
         </div>
     </footer>
+    </footer>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script> -->
