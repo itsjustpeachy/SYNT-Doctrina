@@ -9,28 +9,25 @@ Page: https://itsjustpeachy.github.io/SYNT-Doctrina/
 
 
 
- Technologies Libraries
+ ### Technologies Libraries
  - [Rapid API - Learning Objects V2](https://rapidapi.com/inokufu-search-api/api/learning-objects-v2/details)
  - [Chicago Art API](https://api.artic.edu/docs/#quick-start)
  - [Jquery](https://jquery.com/)
  - [Bulma](https://bulma.io/documentation/)
 
 
-Functionality
+## Functionality
 
-This is a learning Platform application, which is works well based on Web API. When a user opens the index file, can see three different categories: WORK, PLAY and SCHOOL.
-By clicking and choosing one of these categories, we go to the second level which are sub-categories and they are more detail to make our search easier and then by clicking one of those, user can see different courses based on API result.
-This is a simple but effective application that shows how API, JavaScript, CSS and HTML works well together.
+This is a learning platform application, which works well based on Web API. When a user opens the application , the user is presented three different categories. These categories are as follows: WORK, PLAY, and, SCHOOL. By clicking and choosing one of these three categories, the user is lead to a subcategory that contains options offered to the user to narrow down the user’s search with more details. By clicking one of these, the user can see different courses based on the API’s search result. This is a simple but effective application that shows what API, JavaScript, CSS and HTML can achieve when they work
+ together.
  
-
-
-Screenshot:
+## Screenshot:
 
 ![Screenshot](assets/images/prjimg.jpg)
 
 
 
-License
+## License
 
 MIT License
 
