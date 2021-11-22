@@ -18,8 +18,25 @@ body {
 	
 	margin-left:30px;
 	margin-right:30px;
-	
 }
+
+#inspiration{
+	display: none;
+	border: solid 3px #ffffff;
+	background-color: #4a96a0;
+	border-radius: 5px;
+}
+#inspiration ul {
+	margin: -10px 10px 10px 10px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+#title{
+	color: #ffffff;
+	font-size: 14px;
+}
+
 .column:hover{
 	opacity: 0.3; 
 }
@@ -43,6 +60,12 @@ body {
 	display: none;
 
 }
+#artButtom{
+	background-color: rgb(248, 248, 248);
+	width: 30vh;
+	height: 20px;
+	border: 1px solid black;
+	} 
 #Work-box{
 	margin-left:auto;
 	margin-right:auto;

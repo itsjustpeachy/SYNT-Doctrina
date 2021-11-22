@@ -4,6 +4,7 @@ var searchKeyword3 = ""
 var searchKeyword4 = ""
 var searchKeyword5 = ""
 var searchKeyword6 = ""
+var searchKeyword7 = ""
 
 $(document).ready(function () {
     console.log("ready!")
@@ -21,8 +22,10 @@ $(document).ready(function () {
         $('#secondaryTag4').children().text("Writing")
         $('#secondaryTagBox5').toggle(true)
         $('#secondaryTagBox6').toggle(true)
+        $('#secondaryTagBox7').toggle(true)
         $('#secondaryTag5').toggle(true).children().text("Coding")
         $('#secondaryTag6').toggle(true).children().text("Digital Art")
+        $('#secondaryTag7').toggle(true).children().text("Classical Art")
     });
     $("#primaryTag2").click(function () {
         $("#sectionID").show()
@@ -36,8 +39,10 @@ $(document).ready(function () {
         $('#secondaryTag4').children().text("Time Management")
         $('#secondaryTagBox5').toggle(false)
         $('#secondaryTagBox6').toggle(false)
+        $('#secondaryTagBox7').toggle(false)
         $('#secondaryTag5').toggle(false).children().text("")
         $('#secondaryTag6').toggle(false).children().text("")
+        $('#secondaryTag7').toggle(false).children().text("")
     });
     $("#primaryTag3").click(function () {
         $("#sectionID").show()
@@ -51,8 +56,10 @@ $(document).ready(function () {
         $('#secondaryTag4').children().text("Time Management")
         $('#secondaryTagBox5').toggle(false)
         $('#secondaryTagBox6').toggle(false)
+        $('#secondaryTagBox7').toggle(false)
         $('#secondaryTag5').toggle(false).children().text("")
         $('#secondaryTag6').toggle(false).children().text("")
+        $('#secondaryTag7').toggle(false).children().text("")
     });
 
     //Sets keywords for search in settings
@@ -138,14 +145,67 @@ $(document).ready(function () {
             return
         }
     })
+    //Chicago Art Tag
+    $('#secondaryTag7').click(function () {
+        if ($('#primaryTag1').hasClass('on')) {
+            searchKeyword7 = "%20classical art"
+            console.log(searchKeyword7)
+            return
+        }
+    })
 
+
+    
     //settings for ajax request from API on button press
     $('#submitButton').click(function () {
+
+        //Chicago Art API
+        var chicagoInstitute = 'https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number=10'
+
+
+
+        fetch(chicagoInstitute)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+
+            // this can be a function  
+                var rand = Math.floor ( Math.random() * data.data.length)
+                console.log(rand)
+                console.log(data)
+               console.log(data.data.length)  
+            fetch(`https://api.artic.edu/api/v1/artworks/${data.data[rand].id}?fields=id,title,image_id`)
+                .then(function (response2) { return response2.json() })
+
+                .then(paintingdata => {
+
+                    fetch(`https://www.artic.edu/iiif/2/${paintingdata.data.image_id}/full/843,/0/default.jpg`)
+
+                        .then((imagedata) => {
+                              console.log(imagedata)
+
+                            console.log("Title: " + data.data[rand].title);
+                            console.log("Artist " + data.data[rand].artist_display);
+                             console.log("Time period: "  + data.data[rand].date_display);
+
+
+                                  $("#inspiration").append(`<div class="card"> <img class="card-image" src="${imagedata.url}"></div>`).toggle(true)
+
+                                  $("#title").append("" + data.data[rand].title )
+                                  $("#period").append("Artist: \n " + data.data[rand].artist_display)
+                                  $("#date").append("Time period: \n "  + data.data[rand].date_display);
+
+                         })
+                })
+        })
+
+        //Learning Objects v2 API
         console.log('button pressed with keywords' + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6)
         const settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://learning-objects-v2.p.rapidapi.com/search?keywords=" + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + "&lang=en&sort=popularity&model=strict&max=10&page=0",
+            "url": "https://learning-objects-v2.p.rapidapi.com/search?keywords=" + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + searchKeyword7 +"&lang=en&sort=popularity&model=strict&max=10&page=0",
             "method": "GET",
             //"dataType": "json",
 
