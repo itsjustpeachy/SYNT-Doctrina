@@ -155,7 +155,7 @@ $(document).ready(function () {
     })
 
 
-    
+
     //settings for ajax request from API on button press
     $('#submitButton').click(function () {
 
@@ -165,47 +165,48 @@ $(document).ready(function () {
 
 
         fetch(chicagoInstitute)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
 
-            // this can be a function  
-                var rand = Math.floor ( Math.random() * data.data.length)
+                // this can be a function  
+                var rand = Math.floor(Math.random() * data.data.length)
                 console.log(rand)
                 console.log(data)
-               console.log(data.data.length)  
-            fetch(`https://api.artic.edu/api/v1/artworks/${data.data[rand].id}?fields=id,title,image_id`)
-                .then(function (response2) { return response2.json() })
+                console.log(data.data.length)
+                fetch(`https://api.artic.edu/api/v1/artworks/${data.data[rand].id}?fields=id,title,image_id`)
+                    .then(function (response2) { return response2.json() })
 
-                .then(paintingdata => {
+                    .then(paintingdata => {
 
-                    fetch(`https://www.artic.edu/iiif/2/${paintingdata.data.image_id}/full/843,/0/default.jpg`)
+                        fetch(`https://www.artic.edu/iiif/2/${paintingdata.data.image_id}/full/843,/0/default.jpg`)
 
-                        .then((imagedata) => {
-                              console.log(imagedata)
+                            .then((imagedata) => {
+                                console.log(imagedata)
 
-                            console.log("Title: " + data.data[rand].title);
-                            console.log("Artist " + data.data[rand].artist_display);
-                             console.log("Time period: "  + data.data[rand].date_display);
+                                console.log("Title: " + data.data[rand].title);
+                                console.log("Artist " + data.data[rand].artist_display);
+                                console.log("Time period: " + data.data[rand].date_display);
 
+                                if ($('#primaryTag1').hasClass('on')) {
 
-                                  $("#inspiration").append(`<div class="card"> <img class="card-image" src="${imagedata.url}"></div>`).toggle(true)
+                                    $("#inspiration").append(`<div class="card"> <img class="card-image" src="${imagedata.url}"></div>`).toggle(true)
+                                    $("#title").append("" + data.data[rand].title)
+                                    $("#period").append("Artist: \n " + data.data[rand].artist_display)
+                                    $("#date").append("Time period: \n " + data.data[rand].date_display);
+                                }
 
-                                  $("#title").append("" + data.data[rand].title )
-                                  $("#period").append("Artist: \n " + data.data[rand].artist_display)
-                                  $("#date").append("Time period: \n "  + data.data[rand].date_display);
-
-                         })
-                })
-        })
+                            })
+                    })
+            })
 
         //Learning Objects v2 API
         console.log('button pressed with keywords' + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6)
         const settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://learning-objects-v2.p.rapidapi.com/search?keywords=" + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + searchKeyword7 +"&lang=en&sort=popularity&model=strict&max=10&page=0",
+            "url": "https://learning-objects-v2.p.rapidapi.com/search?keywords=" + searchKeyword1 + searchKeyword2 + searchKeyword3 + searchKeyword4 + searchKeyword5 + searchKeyword6 + searchKeyword7 + "&lang=en&sort=popularity&model=strict&max=10&page=0",
             "method": "GET",
             //"dataType": "json",
 
@@ -226,7 +227,7 @@ $(document).ready(function () {
                 cardTitle = response.response.content[i].title
                 cardProvider = response.response.content[i].type
                 cardPicture = response.response.content[i].picture
-                
+
                 //Card Image div's made
                 $cardImg = $("<img>").attr('src', cardPicture)
                 $cardImgFig = $("<figure>").addClass("image is-4by3").append($cardImg)
